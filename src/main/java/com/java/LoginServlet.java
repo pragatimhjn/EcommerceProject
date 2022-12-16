@@ -1,12 +1,11 @@
 package com.java;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +36,7 @@ public class LoginServlet extends HttpServlet {
  	   ResultSet rs = ps.executeQuery();
  	  if(rs.next())
 	   {
+		  /*
  		  if(name.equals(rs.getString(1))&& password.equals(rs.getString(2))){
  			  
 			response.sendRedirect("updateUser.html");
@@ -47,6 +47,18 @@ public class LoginServlet extends HttpServlet {
  			  response.sendRedirect("error.jsp");
 
  		  }
+		  */
+		    if(name.equals(rs.getString(1))&& password.equals(rs.getString(2))){  
+ 		        RequestDispatcher rd=request.getRequestDispatcher("viewProducts.jsp");  
+ 		        rd.forward(request,response);  
+ 		    }  
+ 		    else{  
+ 		        out.print("Sorry username or password error");  
+ 		        RequestDispatcher rd=request.getRequestDispatcher("error.jsp");  
+ 		        rd.include(request,response);  
+ 		    }  
+
+		  
  		  
 	   }
 	    }
