@@ -8,7 +8,7 @@
 </head>
 <body>
 <p>Some error occurred!</p>  
-<jsp:include page="addToCart.html"></jsp:include>  
+<jsp:include page="index.html"></jsp:include>  
 
 </body>
 </html>
